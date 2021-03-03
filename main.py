@@ -86,7 +86,7 @@ if(uploadFlag):
         if item["BlockType"] == "LINE":
             content +=  item["Text"]
 if(len(content)>2):
-    print(content)
+    print(content.encode('utf-8'))
     contentFlag = True;
 
 
@@ -103,7 +103,7 @@ def translate(Englishtext):
                                   SourceLanguageCode="en",
                                   TargetLanguageCode="ml")
     malayalam= result["TranslatedText"]
-    print(malayalam)
+    print(malayalam.encode('utf-8'))
     print(len(malayalam))
     play(malayalam)
     #print(updatedMalayalam)
