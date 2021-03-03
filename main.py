@@ -92,7 +92,7 @@ if(len(content)>2):
 
 from gtts import gTTS
 def play(text):
-    tts = gTTS(text, lang='ml')
+    tts = gTTS(text, lang='ta')
     tts.save('hello.mp3')
     print("saved")
 
@@ -101,7 +101,7 @@ def translate(Englishtext):
                       aws_secret_access_key=SECRET_KEY)
     result = translate.translate_text(Text=Englishtext,
                                   SourceLanguageCode="en",
-                                  TargetLanguageCode="ml")
+                                  TargetLanguageCode="ta")
     malayalam= result["TranslatedText"]
     print(malayalam.encode('utf-8'))
     print(len(malayalam))
@@ -120,9 +120,10 @@ def playMusic(file):
     print("playing"+file)
     p.play() # non-blocking, volume = 0.5
     print ("done")
-    
+import os
 if(contentFlag):
-    playMusic("hello.mp3")
+    os.system("play hello.mp3")
+    #playMusic("hello.mp3")
     flag = False
     uploadFlag = False
     contentFlag = False
